@@ -4,7 +4,70 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;0,800;1,100;1,800&display=swap');
 
-body
+*
 {
     font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
 }
+
+
+/* Circle Spinner */
+.circle-wrap {
+    overflow: hidden;
+    margin: 70px auto;
+    width: 150px;
+    height: 150px;
+    background: #fefcff;
+    border-radius: 50%;
+    border: 0px solid #cdcbd0;
+  }
+  
+  .circle-wrap .circle .mask,
+  .circle-wrap .circle .fill {
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    border-radius: 50%;
+  }
+  
+  .circle-wrap .circle .mask {
+    clip: rect(0px, 150px, 150px, 75px);
+  }
+  
+  .circle-wrap .inside-circle {
+    width: 122px;
+    height: 122px;
+    border-radius: 50%;
+    background: #fff;
+    line-height: 120px;
+    text-align: center;
+    margin-top: 14px;
+    margin-left: 14px;
+    color: #4D4DFF;
+    position: absolute;
+    z-index: 100;
+    font-weight: 700;
+    font-size: 1.8em;
+  }
+  
+  .mask .fill {
+    clip: rect(0px, 75px, 150px, 0px);
+    background-color: #4D4DFF;
+    border: 8px solid #fff;
+  }
+  
+  .mask.full,
+  .circle .fill {
+    animation: fill ease-in-out 3s;
+    transform: rotate(135deg);
+  }
+
+  @keyframes fill{
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(135deg);
+    }
+  }
