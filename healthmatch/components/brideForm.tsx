@@ -38,7 +38,7 @@ function Form({onClick}: Props) {
     <p className='p-10 pt-2 text-base text-gray-500'>
         Bride Form (this should be filled carefully by the Bride)</p>
 
-    <form onSubmit={(e) => e.preventDefault()} className='px-10'>
+    <form className='px-10'>
         <menu>
           <h4 className='text-gray-400 mb-2 mt-2'>Are you the Bride?</h4>
           <div className="relative w-full lg:max-w-sm">
