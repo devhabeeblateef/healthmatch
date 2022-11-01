@@ -28,9 +28,9 @@ function Results({}: Props) {
       <h1 className='text-[30px] px-10 pt-10'>Test Results</h1>
       <div className='w-[80%] ml-12 p-2 bg-gray-100 text-[#2b2b2b] border'>
         <p className="px-2 text-sm">Showing Results for</p>
-        {groomDetails.map((groom: any) => {
-          return brideDetails.map((bride :any) => {
-            return <p className='mx-2 text-lg text-[#4D4DFF] w-full'>{groom.Groom_Name} & {bride.Bride_Name}</p>
+        {groomDetails.map((keyOne: any, groom: any) => {
+          return brideDetails.map((keyTwo: any, bride :any, ) => {
+            return <p key={keyOne} className='mx-2 text-lg text-[#4D4DFF] w-full'>{groom.Groom_Name} & {bride.Bride_Name}</p>
           })
         })}
       </div>
