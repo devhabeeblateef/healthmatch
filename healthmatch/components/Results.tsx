@@ -4,6 +4,7 @@ import {brideDetails} from './brideForm'
 import Chart from 'chart.js/auto';
 import {CategoryScale} from 'chart.js'; 
 import {Bar} from 'react-chartjs-2'
+import {Line} from 'react-chartjs-2'
 import {motion} from 'framer-motion'
 
 Chart.register(CategoryScale);
@@ -59,12 +60,36 @@ function Results({}: Props) {
         {/* BarChart */}
      <Bar data={userData} options={{animations: {
       tension: {
-        duration: 2,
+        duration: 2000,
         easing: 'easeOutQuart',
         from: 0,
         to: 1,
       }
      }}}/>
+     <div>
+     </div>
+      </div>
+    </div>
+    <div className='px-12 py-2 lg:flex'>
+      <div className='w-[90%] my-10 text-sm p-2'>
+      <h1>Result Analysis</h1>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At iure error neque optio adipisci labore nulla soluta non laborum quis dolore a velit consequatur aut praesentium, eligendi animi unde nemo!</p>
+      </div>
+      <div className='w-[90%]'>
+        <Line data={userData} options={{animations: {
+          tension: {
+            duration: 1000,
+        easing: 'linear',
+        from: 1,
+        to: 0,
+        loop: true
+          }},
+          scales: {
+             y: {
+              min: 0,
+              max: 100
+             }
+          }}} />
       </div>
     </div>
     </div>

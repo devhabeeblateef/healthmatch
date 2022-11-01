@@ -32,6 +32,7 @@ const Home: NextPage = () => {
              {myForm ? <GroomForm onClick={loadBrideForm} /> : <BrideForm onClick={complete} /> }
              
         </div> : <Results/>}
+        <div className='mb-32'></div>
           </div>
   )
 }
