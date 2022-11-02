@@ -28,7 +28,8 @@ function Form({onClick}: Props) {
       Groom_Email : groomMail,
       Groom_Genotype: groomGenotype,
       Groom_Blood_Group: groomBloodGroup,
-      Groom_Name: groomName
+      Groom_Name: groomName,
+      key: 0
    }]
   return (
     <div className='text-[#2b2b2b] md:h-[96vh] w-screen lg:w-[55%] md:w-[60%] h-screen'>

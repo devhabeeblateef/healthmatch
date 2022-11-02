@@ -28,7 +28,8 @@ function Form({onClick}: Props) {
      Bride_Email: brideMail,
      Bride_Genotype: brideGenotype,
      Bride_Blood_Group: brideBloodGroup,
-     Bride_Name: brideName
+     Bride_Name: brideName,
+     key: 0
   }];
     
   return (
