@@ -7,9 +7,12 @@
 *
 {
     font-family: 'Poppins', sans-serif;
-    overflow-x: hidden;
 }
 
+.page
+{
+  overflow: none;
+}
 
 /* Circle Spinner */
 .circle-wrap {

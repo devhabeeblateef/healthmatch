@@ -7,16 +7,19 @@ type Props = {
 
 function Form({onClick}: Props) {
   // Setting States
-  const [isBride, setIsBride] = useState(true);
+  const [everGivenBirth, setEverGivenBirth] = useState("");
+  const [historyOfMiscarriage, setHistoryOfMiscarriage] = useState("");
+  const [attendedAntenatalClinic, setAttendedAntenatalClinic] = useState("");
   const [brideName, setBrideName] = useState("");
   const [brideMail, setBrideMail] = useState("");
+  const [brideAge, setBrideAge] = useState("");
   const [brideGenotype, setBrideGenotype] = useState("");
+  const [timesOfBirth, setTimesOfBirth] = useState("");
+  const [visitsToAntenatal, setVisitsToAntenatal] = useState("");
   const [brideBloodGroup, setBrideBloodGroup] = useState("");
+  const [brideRhesusFactor, setBrideRhesusFactor] = useState("");
 
   // Form Methods
-  const handleChange = () => {
-    setIsBride(!isBride)
-  }
   const selectGenotype = (e: any) => {
     setBrideGenotype(e.target.value)
   }
@@ -24,11 +27,18 @@ function Form({onClick}: Props) {
 
    //Saving Bride Details
    brideDetails = [
-    {correctGender: isBride, 
-     Bride_Email: brideMail,
-     Bride_Genotype: brideGenotype,
-     Bride_Blood_Group: brideBloodGroup,
+    {
      Bride_Name: brideName,
+     Bride_Age: brideAge,
+     Bride_Email: brideBloodGroup,
+     Bride_Genotype: brideGenotype,
+     Bride_BloodGroup: brideBloodGroup,
+     Bride_Rhesus: brideRhesusFactor,
+     Bride_BirthStatus: everGivenBirth,
+     Bride_NoOfBirth: timesOfBirth,
+     Bride_MiscarriageStatus: historyOfMiscarriage,
+     Bride_AntenatalStatus: attendedAntenatalClinic,
+     Bride_NoOfAntenatal: visitsToAntenatal,
      key: 0
   }];
     
@@ -41,25 +51,19 @@ function Form({onClick}: Props) {
 
     <form className='px-10'>
         <menu>
-          <h4 className='text-gray-400 mb-2 mt-2'>Are you the Bride?</h4>
-          <div className="relative w-full lg:max-w-sm">
-            <select className="w-full p-2.5 text-gray-500 bg-white border rounded-md 
-            shadow-sm outline-none appearance-none focus:border-indigo-600" onChange={handleChange} required>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-            </select>
-        </div>        
-        </menu>
-
-        <menu>
           <h4 className='text-gray-400 mb-2 mt-6'>Name</h4>
-          <input value={brideName} onChange={(e) => setBrideName(e.target.value) } type="email" className='relative lg:max-w-sm w-96 p-2.5 text-gray-500 bg-white border rounded-md 
+          <input value={brideName}  placeholder="This is an optional field" onChange={(e) => setBrideName(e.target.value) } type="email" className='relative lg:max-w-sm w-96 p-2.5 text-gray-500 bg-white border rounded-md 
             shadow-sm outline-none appearance-none focus:border-indigo-600' name="email" required/>
         </menu>
 
         <menu>
+          <h4 className='text-gray-400 mb-2 mt-6'>Age</h4>
+          <input value={brideAge}  placeholder="This information is needed for our analysis" onChange={(e) => setBrideAge(e.target.value) } type="email" className='relative lg:max-w-sm w-96 p-2.5 text-gray-500 bg-white border rounded-md 
+            shadow-sm outline-none appearance-none focus:border-indigo-600' name="email" required/>
+        </menu>
+        <menu>
           <h4 className='text-gray-400 mb-2 mt-6'>Email</h4>
-          <input value={brideMail} onChange={(e) => setBrideMail(e.target.value) } type="email" className='relative lg:max-w-sm w-96 p-2.5 text-gray-500 bg-white border rounded-md 
+          <input value={brideMail} placeholder="This is an optional field" onChange={(e) => setBrideMail(e.target.value) } type="email" className='relative lg:max-w-sm w-96 p-2.5 text-gray-500 bg-white border rounded-md 
             shadow-sm outline-none appearance-none focus:border-indigo-600' name="email" required/>
         </menu>
 
@@ -68,7 +72,7 @@ function Form({onClick}: Props) {
           <div className="relative w-full lg:max-w-sm">
             <select value={brideGenotype} onChange={selectGenotype} className="w-full p-2.5 text-gray-500 bg-white border rounded-md 
             shadow-sm outline-none appearance-none focus:border-indigo-600" required>
-                <option value=""></option>
+                <option value="">Click to choose one</option>
                 <option value="AA">AA</option>
                 <option value="AS">AS</option>
                 <option value="SS">SS</option>
@@ -84,7 +88,7 @@ function Form({onClick}: Props) {
       <div className="relative w-full lg:max-w-sm">
             <select value={brideBloodGroup} onChange={(e) => setBrideBloodGroup(e.target.value)} className="w-full p-2.5 text-gray-500 bg-white border rounded-md 
             shadow-sm outline-none appearance-none focus:border-indigo-600" required>
-                <option></option>
+                <option>Click to choose one</option>
                 <option value="AB">AB</option>
                 <option value="A">A</option>
                 <option value="B">B</option>
@@ -93,6 +97,66 @@ function Form({onClick}: Props) {
             </select>
         </div>  
       </menu>
+
+      <menu>
+      <h4 className='text-gray-400 mb-2 mt-6'>Select Rhesus Factor</h4>
+      <div className="relative w-full lg:max-w-sm">
+            <select value={brideRhesusFactor} onChange={(e) => setBrideRhesusFactor(e.target.value)} className="w-full p-2.5 text-gray-500 bg-white border rounded-md 
+            shadow-sm outline-none appearance-none focus:border-indigo-600" required>
+                <option>Click to choose one</option>
+                <option value="AB">+</option>
+                <option value="A">-</option>
+            </select>
+        </div>  
+      </menu>
+
+      <menu>
+      <h4 className='text-gray-400 mb-2 mt-6'>Ever Given Birth</h4>
+      <div className="relative w-full lg:max-w-sm">
+            <select value={everGivenBirth} onChange={(e) => setEverGivenBirth(e.target.value)} className="w-full p-2.5 text-gray-500 bg-white border rounded-md 
+            shadow-sm outline-none appearance-none focus:border-indigo-600" required>
+                <option>Click to choose one</option>
+                <option value="AB">Yes</option>
+                <option value="A">No</option>
+            </select>
+        </div>  
+      </menu>
+
+      <menu>
+          <h4 className='text-gray-400 mb-2 mt-6'>If yes, how many times?(1-8)</h4>
+          <input value={timesOfBirth} placeholder="This is an optional field" onChange={(e) => setTimesOfBirth(e.target.value) } type="number" className='relative lg:max-w-sm w-96 p-2.5 text-gray-500 bg-white border rounded-md 
+            shadow-sm outline-none appearance-none focus:border-indigo-600' name="email" required/>
+        </menu>
+
+        <menu>
+      <h4 className='text-gray-400 mb-2 mt-6'>Any history of miscarriage or abortion?</h4>
+      <div className="relative w-full lg:max-w-sm">
+            <select value={historyOfMiscarriage}  onChange={(e) => setHistoryOfMiscarriage(e.target.value)} className="w-full p-2.5 text-gray-500 bg-white border rounded-md 
+            shadow-sm outline-none appearance-none focus:border-indigo-600" required>
+                <option>This field is needed for our analysis</option>
+                <option value="AB">Yes</option>
+                <option value="A">No</option>
+            </select>
+        </div>  
+      </menu>
+
+      <menu>
+      <h4 className='text-gray-400 mb-2 mt-6'>Have you ever attended an Antenatal clinic?</h4>
+      <div className="relative w-full lg:max-w-sm">
+            <select value={attendedAntenatalClinic} onChange={(e) => setAttendedAntenatalClinic(e.target.value)} className="w-full p-2.5 text-gray-500 bg-white border rounded-md 
+            shadow-sm outline-none appearance-none focus:border-indigo-600" required>
+                <option>Click to choose one</option>
+                <option value="AB">Yes</option>
+                <option value="A">No</option>
+            </select>
+        </div>  
+      </menu>
+
+      <menu>
+          <h4 className='text-gray-400 mb-2 mt-6'>If yes, how many visits?(1-8)</h4>
+          <input value={visitsToAntenatal} placeholder="This is an optional field" onChange={(e) => setVisitsToAntenatal(e.target.value) } type="number" className='relative lg:max-w-sm w-96 p-2.5 text-gray-500 bg-white border rounded-md 
+            shadow-sm outline-none appearance-none focus:border-indigo-600' name="email" required/>
+        </menu>
         
         <button onClick={onClick} type="submit" className='bg-[#4D4DFF] rounded-[10px] py-2 px-[8px] w-48 mt-6 text-white'>
           Continue

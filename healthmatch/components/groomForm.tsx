@@ -8,27 +8,25 @@ type Props = {
 
 function Form({onClick}: Props) {
   // Setting States
-  const [isGroom, setIsGroom] = useState(true);
   const [groomName, setGroomName] = useState("");
   const [groomMail, setGroomMail] = useState("");
+  const [groomAge, setGroomAge] = useState("");
   const [groomGenotype, setGroomGenotype] = useState("");
   const [groomBloodGroup, setGroomBloodGroup] = useState("");
+  const [groomRhesusFactor, setGroomRhesusFactor] = useState("");
 
   // Form Methods
-  const handleChange = () => {
-    setIsGroom(!isGroom)
-  }
   const selectGenotype = (e: any) => {
     setGroomGenotype(e.target.value)
   }
 
    //Saving Groom Details
    groomDetails = [{
-      correctGender : isGroom,
-      Groom_Email : groomMail,
+      Groom_Name : groomName,
+      Groom_Age: groomAge,
       Groom_Genotype: groomGenotype,
-      Groom_Blood_Group: groomBloodGroup,
-      Groom_Name: groomName,
+      Groom_BloodGroup: groomBloodGroup,
+      Groom_Rhesus: groomRhesusFactor,
       key: 0
    }]
   return (
@@ -39,39 +37,32 @@ function Form({onClick}: Props) {
 
     <form  className='px-10'>
         <menu>
-          <h4 className='text-gray-400 mb-2 mt-2'>Are you the Groom?</h4>
-          <div className="relative w-full  lg:max-w-sm">
-            <select className="w-full p-2.5 text-gray-500 bg-white border rounded-md 
-            shadow-sm outline-none appearance-none focus:border-indigo-600" onChange={handleChange} required>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-            </select>
-        </div>        
-        </menu>
-        <menu>
           <h4 className='text-gray-400 mb-2 mt-6'>Name</h4>
-          <input value={groomName} onChange={(e) => setGroomName(e.target.value) } type="text" className='relative lg:max-w-sm w-96 p-2.5 text-gray-500 bg-white border rounded-md 
+          <input value={groomName} placeholder="This is an optional field" onChange={(e) => setGroomName(e.target.value) } type="text" className='relative lg:max-w-sm w-96 p-2.5 text-gray-500 bg-white border rounded-md 
+            shadow-sm outline-none appearance-none focus:border-indigo-600' name="groomName" required/>
+        </menu>
+
+        <menu>
+          <h4 className='text-gray-400 mb-2 mt-6'>Age</h4>
+          <input value={groomAge} placeholder="This information is needed for our analysis" onChange={(e) => setGroomAge(e.target.value) } type="text" className='relative lg:max-w-sm w-96 p-2.5 text-gray-500 bg-white border rounded-md 
             shadow-sm outline-none appearance-none focus:border-indigo-600' name="groomName" required/>
         </menu>
 
         <menu>
           <h4 className='text-gray-400 mb-2 mt-6'>Email</h4>
-          <input value={groomMail} onChange={(e) => setGroomMail(e.target.value) } type="email" className='relative lg:max-w-sm w-96 p-2.5 text-gray-500 bg-white border rounded-md 
+          <input value={groomMail} placeholder="This is an optional field" onChange={(e) => setGroomMail(e.target.value) } type="email" className='relative lg:max-w-sm w-96 p-2.5 text-gray-500 bg-white border rounded-md 
             shadow-sm outline-none appearance-none focus:border-indigo-600' name="email" required/>
         </menu>
 
         <menu>
           <h4 className='text-gray-400 mb-2 mt-6'>Select Genotype</h4>
           <div className="relative w-full lg:max-w-sm">
-            <select value={groomGenotype} onChange={selectGenotype} className="w-full p-2.5 text-gray-500 bg-white border rounded-md 
+            <select value={groomGenotype} placeholder="This information is needed for our analysis" onChange={selectGenotype} className="w-full p-2.5 text-gray-500 bg-white border rounded-md 
             shadow-sm outline-none appearance-none focus:border-indigo-600" required>
-                <option value=""></option>
+                <option value="">Click to choose one</option>
                 <option value="AA">AA</option>
-                <option value="AS">AS</option>
-                <option value="SS">SS</option>
-                <option value="AC">AC</option>
-                <option value="SC">SC</option>
-                <option value="CC">CC</option>
+                <option value="AS">AS/AC</option>
+                <option value="SS">SS/SC</option>
             </select>
         </div>  
         </menu>
@@ -81,12 +72,24 @@ function Form({onClick}: Props) {
       <div className="relative w-full lg:max-w-sm">
             <select value={groomBloodGroup} onChange={(e) => setGroomBloodGroup(e.target.value)} className="w-full p-2.5 text-gray-500 bg-white border rounded-md 
             shadow-sm outline-none appearance-none focus:border-indigo-600" required>
-                <option></option>
+                <option>Click to choose one</option>
                 <option value="AB">AB</option>
                 <option value="A">A</option>
                 <option value="B">B</option>
                 <option value="O+">O+</option>
                 <option value="O-">O-</option>
+            </select>
+        </div>  
+      </menu> 
+
+      <menu>
+      <h4 className='text-gray-400 mb-2 mt-6'>Select Rhesus Factor</h4>
+      <div className="relative w-full lg:max-w-sm">
+            <select value={groomRhesusFactor} onChange={(e) => setGroomRhesusFactor(e.target.value)} className="w-full p-2.5 text-gray-500 bg-white border rounded-md 
+            shadow-sm outline-none appearance-none focus:border-indigo-600" required>
+                <option></option>
+                <option value="AB">+</option>
+                <option value="A">-</option>
             </select>
         </div>  
       </menu>
